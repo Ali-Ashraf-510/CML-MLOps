@@ -1,2 +1,12 @@
-Model Training Results
-==================================================
+RandomForestClassifier Without Imbalance Handle
+F1-score of Training is: 100.00 %
+F1-Score of Validation is: 59.78 %
+----------------------------------------
+RandomForestClassifier With Imbalance Handle (class_weight)
+F1-score of Training is: 100.00 %
+F1-Score of Validation is: 57.14 %
+----------------------------------------
+RandomForestClassifier With Imbalance Handle (SMOTE)
+F1-score of Training is: 100.00 %
+F1-Score of Validation is: 59.29 %
+----------------------------------------
