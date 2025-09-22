@@ -2,7 +2,7 @@
 Machine Learning Pipeline for Customer Churn Prediction
 ========================================================
 This script implements a complete ML pipeline including data preprocessing,
-handling class imbalance, model training, and evaluation using Random Forest.
+handling class imbalance, model training, and evaluation using Logistic Regression.
 """
 
 # =====================================================================================
@@ -25,9 +25,9 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler, RobustScaler
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 ## Scikit-learn machine learning models
-from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.neighbors import KNeighborsClassifier
 # from sklearn.ensemble import RandomForestClassifier
-# from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression
 
 ## Scikit-learn evaluation metrics
 from sklearn.metrics import f1_score, confusion_matrix
@@ -171,21 +171,21 @@ X_train_resampled, y_train_resampled = over.fit_resample(X_train_final, y_train)
 
 def train_model(X_train , y_train , plot_name = '', class_weight = None ):
     """
-    Train a KNN model and evaluate its performance.
+    Train a Logistic Regression model and evaluate its performance.
     
     Args:
         X_train: Training features
         y_train: Training labels
         plot_name: Name for saving confusion matrix plot
-        class_weight: Not used for KNN (kept for compatibility)
+        class_weight: Dictionary of class weights for handling imbalance
     
     Returns:
         bool: True when training and evaluation complete
     """
     global clf_name
     
-    # Initialize and train KNN classifier
-    clf = KNeighborsClassifier(n_neighbors=5)
+    # Initialize and train Logistic Regression classifier
+    clf = LogisticRegression(random_state=42, class_weight=class_weight, max_iter=1000)
     clf.fit(X_train , y_train)
     
     # Make predictions on training and test sets
