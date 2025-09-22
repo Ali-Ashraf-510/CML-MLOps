@@ -25,8 +25,8 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler, RobustScaler
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 ## Scikit-learn machine learning models
-# from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.ensemble import RandomForestClassifier
 # from sklearn.linear_model import LogisticRegression
 
 ## Scikit-learn evaluation metrics
@@ -171,21 +171,21 @@ X_train_resampled, y_train_resampled = over.fit_resample(X_train_final, y_train)
 
 def train_model(X_train , y_train , plot_name = '', class_weight = None ):
     """
-    Train a Random Forest model and evaluate its performance.
+    Train a KNN model and evaluate its performance.
     
     Args:
         X_train: Training features
         y_train: Training labels
         plot_name: Name for saving confusion matrix plot
-        class_weight: Dictionary of class weights for handling imbalance
+        class_weight: Not used for KNN (kept for compatibility)
     
     Returns:
         bool: True when training and evaluation complete
     """
     global clf_name
     
-    # Initialize and train Random Forest classifier
-    clf = RandomForestClassifier(n_estimators=100, random_state=42, class_weight=class_weight)
+    # Initialize and train KNN classifier
+    clf = KNeighborsClassifier(n_neighbors=5)
     clf.fit(X_train , y_train)
     
     # Make predictions on training and test sets
