@@ -225,7 +225,7 @@ train_model(X_train_final , y_train , plot_name = 'Without Imbalance Handle' , c
 train_model(X_train_final , y_train , plot_name = 'With Imbalance Handle (class_weight)' , class_weight = dict_wieght)
 
 # Strategy 3: Train model using SMOTE oversampling to handle imbalance
-train_model(X_train_resmapled , y_train_resampled , plot_name = 'With Imbalance Handle (SMOTE)' , class_weight = None)
+train_model(X_train_resampled , y_train_resampled , plot_name = 'With Imbalance Handle (SMOTE)' , class_weight = None)
 
 # =====================================================================================
 # RESULTS VISUALIZATION AND CLEANUP
